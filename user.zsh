@@ -33,5 +33,6 @@ export PROTON_ENABLE_WAYLAND=1
 export PROTON_ENABLE_HDR=1
 
 eval $(keychain --eval --quiet id_ed25519)
+eval $(keychain --eval --quiet github)
 
 alias jp="ssh -N -f -L 8888:localhost:8888"
