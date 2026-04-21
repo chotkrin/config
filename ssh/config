@@ -1,0 +1,83 @@
+Host nict-laptop
+    HostName 100.95.139.18
+    User zelin
+
+Host abci-bastion
+    HostName as.v3.abci.ai
+    User ach18455od
+    IdentityFile ~/.ssh/nict
+    ProxyJump nict-laptop
+
+Host abci
+    HostName login1
+    User ach18455od
+    IdentityFile ~/.ssh/nict
+    ProxyJump abci-bastion
+
+Host lotus lotus2
+    HostName %h.kuee.kyoto-u.ac.jp
+    IdentityFile ~/.ssh/id_ed25519
+    User zelin
+    AddKeysToAgent yes
+    ForwardAgent yes
+
+Host basil??? jungle* moss??? pine? kale? apas agni kubera
+    ProxyCommand ssh -W %h:%p lotus
+    IdentityFile ~/.ssh/id_ed25519
+    User zelin
+    AddKeysToAgent yes
+    ForwardAgent yes
+
+Host nutmeg truffle1 vanilla1 vanilla2 saffron saffron2 saffron3 saffron4 saffron5 saffron6 saffron7
+    ProxyCommand ssh -W %h:%p lotus
+    IdentityFile ~/.ssh/id_ed25519
+    User zelin
+    AddKeysToAgent yes
+    ForwardAgent yes
+
+Host login
+	HostName 163.220.178.171
+	User zelin
+	IdentityFile ~/.ssh/mdx
+
+Host cpu-node0
+    HostName 10.10.248.109
+    User zelin
+    IdentityFile ~/.ssh/mdx
+    ProxyJump login
+
+Host gpu-node0
+    HostName 10.10.250.55
+    User zelin
+    IdentityFile ~/.ssh/mdx
+    ProxyJump login
+
+Host gpu-node1
+    HostName 10.10.248.103
+    User zelin
+    IdentityFile ~/.ssh/mdx
+    ProxyJump login
+
+Host gpu-node2
+    HostName 10.10.248.105
+    User zelin
+    IdentityFile ~/.ssh/mdx
+    ProxyJump login
+
+Host gpu-node3
+    HostName 10.10.252.24
+    User zelin
+    IdentityFile ~/.ssh/mdx
+    ProxyJump login
+
+Host cuda1
+    HostName 10.10.254.17
+    User zelin
+    IdentityFile ~/.ssh/mdx
+    ProxyJump login
+
+Host cuda2
+    HostName 10.10.250.178
+    User zelin
+    IdentityFile ~/.ssh/mdx
+    ProxyJump login
