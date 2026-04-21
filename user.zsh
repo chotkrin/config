@@ -26,13 +26,27 @@ if [[ ${HYDE_ZSH_NO_PLUGINS} != "1" ]]; then
     # manually add your oh-my-zsh plugins here
     plugins=(
         "sudo"
+        "vi-mode"
     )
 fi
 
 export PROTON_ENABLE_WAYLAND=1
 export PROTON_ENABLE_HDR=1
 
+export EDITOR="nvim"
+export VISUAL="nvim"
+
 eval $(keychain --eval --quiet id_ed25519)
 eval $(keychain --eval --quiet github)
 
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 alias jp="ssh -N -f -L 8888:localhost:8888"
+alias ra="yazi"
