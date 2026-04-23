@@ -10,6 +10,7 @@ declare -a LINKS=(
     "yazi/keymap.toml:$HOME/.config/yazi/keymap.toml"
     "zsh/user.zsh:$HOME/.config/zsh/user.zsh"
     "ssh/config:$HOME/.ssh/config" 
+    "scripts:$HOME/scripts"
 )
 
 for item in "${LINKS[@]}"; do

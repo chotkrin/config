@@ -33,6 +33,8 @@ fi
 export PROTON_ENABLE_WAYLAND=1
 export PROTON_ENABLE_HDR=1
 
+export PATH=$PATH:~/scripts
+
 export EDITOR="nvim"
 export VISUAL="nvim"
 
