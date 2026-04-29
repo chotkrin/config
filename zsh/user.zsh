@@ -50,5 +50,5 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
-alias jp="ssh -N -f -L 8888:localhost:8888"
+alias jp="ssh -N -f -L 9808:localhost:9808"
 alias ra="yazi"
