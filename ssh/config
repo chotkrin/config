@@ -28,7 +28,7 @@ Host basil??? jungle* moss??? pine? kale? apas agni kubera
     AddKeysToAgent yes
     ForwardAgent yes
 
-Host nutmeg truffle1 vanilla1 vanilla2 saffron saffron2 saffron3 saffron4 saffron5 saffron6 saffron7
+Host nutmeg truffle1 vanilla1 vanilla2 saffron saffron2 saffron3 saffron4 saffron5 saffron6 saffron7 saffron8
     ProxyCommand ssh -W %h:%p lotus
     IdentityFile ~/.ssh/id_ed25519
     User zelin
