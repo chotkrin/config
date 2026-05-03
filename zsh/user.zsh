@@ -52,3 +52,4 @@ function yy() {
 
 alias jp="ssh -N -f -L 9808:localhost:9808"
 alias ra="yazi"
+alias ssh="kitty +kitten ssh"
