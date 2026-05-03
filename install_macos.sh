@@ -6,7 +6,7 @@ echo "Deploying macOS Dotfiles..."
 
 declare -a LINKS=(
     "aerospace/aerospace.toml:$HOME/.config/aerospace/aerospace.toml"
-    "kitty/kitty.conf:$HOME/.config/kitty/kitty.conf"
+    "kitty/kitty_macos.conf:$HOME/.config/kitty/kitty.conf"
     "zsh/.zshenv:$HOME/.zshenv"
     "zsh/.zshrc:$HOME/.config/zsh/.zshrc"
     "zsh/user.zsh:$HOME/.config/zsh/user.zsh"

@@ -6,6 +6,7 @@ echo "Deploying Dotfiles..."
 
 declare -a LINKS=(
     "hypr/userprefs.conf:$HOME/.config/hypr/userprefs.conf"
+    "kitty/kitty.conf:$HOME/.config/kitty/kitty.conf"
     "yazi/init.lua:$HOME/.config/yazi/init.lua"
     "yazi/keymap.toml:$HOME/.config/yazi/keymap.toml"
     "zsh/user.zsh:$HOME/.config/zsh/user.zsh"
