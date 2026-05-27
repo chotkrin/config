@@ -34,3 +34,21 @@ try {
 } catch {
     # 如果在老版本 PowerShell 上运行，静默跳过高级补全，不报错
 }
+
+function yy {
+    # 相当于 mktemp
+    $tmp = [System.IO.Path]::GetTempFileName()
+    
+    # 执行 yazi 并传入所有参数 ($args)，同时指定 cwd 写入文件
+    yazi $args --cwd-file="$tmp"
+    
+    # 读取文件内容并在退出时跳转
+    if (Test-Path -Path $tmp) {
+        $cwd = (Get-Content -Path $tmp | Out-String).Trim()
+        if (![string]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path) {
+            Set-Location -LiteralPath $cwd
+        }
+        # 相当于 rm -f
+        Remove-Item -Path $tmp -Force -ErrorAction SilentlyContinue
+    }
+}
