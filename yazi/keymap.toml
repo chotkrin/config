@@ -15,5 +15,6 @@ desc = "Delete a bookmark"
 
 [[mgr.prepend_keymap]]
 on   = [ "J" ]
-run  = 'shell "$SHELL" --block'
+# 修改点：将 "$SHELL" 改为 "pwsh"，确保在 Windows 下按下 J 能正常呼出终端
+run  = 'shell "pwsh" --block'
 desc = "Open interactive shell here"

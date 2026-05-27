@@ -1,0 +1,15 @@
+[opener]
+edit = [
+    { run = 'nvim %s', block = true, desc = "Neovim" }
+]
+
+[open]
+rules = [
+    { url = "*.{txt,md,json,toml,yaml,yml,csv,ps1,lua,sh,c,cpp,rs,py,js,ts}", use = "edit" },
+    { url = "*", use = "play" }
+]
+
+[plugin]
+prepend_fetchers = [
+    { url = "*", run = "noop", group = "mime" },
+]
