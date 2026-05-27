@@ -29,7 +29,7 @@ scoop bucket add nerd-fonts 2>$null
 $Tools = @(
     "neovim", "yazi", "oh-my-posh", "gcc", 
     "fzf", "ripgrep", "7zip", "jq", "poppler", 
-    "fd", "zoxide", "imagemagick"
+    "fd", "zoxide", "imagemagick", "main/uv"
 )
 
 foreach ($Tool in $Tools) {
@@ -114,6 +114,6 @@ Setup-Symlink -RepoPath "glazewm" -SystemPath "$env:USERPROFILE\.glzr\glazewm" -
 Setup-Symlink -RepoPath "zebar" -SystemPath "$env:USERPROFILE\.glzr\zebar" -ItemType "Directory"
 
 # Dynamic Profile Resolution
-Setup-Symlink -RepoPath "pwsh_profile.ps1" -SystemPath $PROFILE -ItemType "File"
+Setup-Symlink -RepoPath "pwsh_profile.ps1" -SystemPath "C:\Users\16322\OneDrive\Onenote Documents\WindowsPowerShell\profile.ps1" -ItemType "File"
 
 Write-Host "`n[+] All environment checks and symlink configurations are complete!" -ForegroundColor Green
