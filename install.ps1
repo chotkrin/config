@@ -30,7 +30,7 @@ $Tools = @(
     "neovim", "yazi", "oh-my-posh", "gcc", 
     "fzf", "ripgrep", "7zip", "jq", "poppler", 
     "fd", "zoxide", "imagemagick", "main/uv", "rustup",
-    "nodejs"
+    "nodejs", "tssh"
 )
 
 foreach ($Tool in $Tools) {

@@ -12,6 +12,7 @@ if (Get-Command zoxide -ErrorAction SilentlyContinue) {
 # ============================================================================
 Set-Alias vim nvim
 Set-Alias ra yazi
+Set-Alias ssh tssh
 Set-Alias ll ls
 function grep { $args | Select-String }
 function df { Get-Volume | Select-Object Letter, Label, @{Name="Size(GB)";Expression={[math]::round($_.Size/1GB,2)}}, @{Name="Free(GB)";Expression={[math]::round($_.SizeRemaining/1GB,2)}} }
@@ -19,6 +20,7 @@ function free { Get-CimInstance Win32_OperatingSystem | Select-Object @{Name="To
 
 # 核心工具：which
 Set-Alias which Get-Command
+function jp { ssh -N -f -L 9808:localhost:9808 }
 
 # ============================================================================
 # 3. Modern Auto-Completion & Suggestions

@@ -5,11 +5,6 @@
       "pack": "glzr-io.starter",
       "widget": "with-glazewm",
       "preset": "default"
-    },
-    {
-      "pack": "synesthesiadev.sakura",
-      "widget": "main",
-      "preset": "default"
     }
   ]
 }
