@@ -1,0 +1,178 @@
+/**
+ * Import the Nerdfonts icon font.
+ * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
+ */
+@import 'https://www.nerdfonts.com/assets/css/webfont.css';
+
+:root {
+  --text-size: 13px; /* 稍微调大1px增加阅读性 */
+  --icon-size: 13px;
+}
+
+/* 浅色模式：提取水面的亮色和树影的深色作为高对比 */
+@media (prefers-color-scheme: light) {
+  :root {
+    --text-color: rgba(40, 44, 71, 0.98); /* 树影深紫蓝，高对比度 */
+    --icon-color: #418b95; /* 湖水蓝绿色 */
+    --bg-color: rgba(242, 245, 251, 0.65); /* 阳光下的地面白蓝，半透明 */
+    --border-color: rgba(255, 255, 255, 0.6); /* 边缘高光强化玻璃质感 */
+    
+    --btn-bg: rgba(40, 44, 71, 0.08);
+    --btn-displayed: rgba(65, 139, 149, 0.25);
+    --btn-focused: rgba(65, 139, 149, 0.5); /* 悬浮时呈现湖水绿 */
+  }
+}
+
+/* 深色模式：提取树影的深色作为背景，樱花粉作为点缀 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: rgba(255, 255, 255, 0.98); /* 纯白，最高对比度 */
+    --icon-color: #ffdbe6; /* 樱花粉色 */
+    --bg-color: rgba(40, 44, 71, 0.65); /* 树影深紫，半透明 */
+    --border-color: rgba(255, 255, 255, 0.15); /* 边缘微光 */
+    
+    --btn-bg: rgba(255, 255, 255, 0.1);
+    --btn-displayed: rgba(255, 219, 230, 0.25);
+    --btn-focused: rgba(255, 219, 230, 0.45); /* 悬浮时呈现樱花粉 */
+  }
+  
+  /* 深色模式下给文字加一点极弱的阴影，防玻璃背景下看不清 */
+  body, i {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+}
+
+body {
+  color: var(--text-color);
+  font-family: ui-monospace, monospace;
+  font-size: var(--text-size);
+  overflow: hidden;
+}
+
+i {
+  color: var(--icon-color);
+  margin-right: 7px;
+  font-size: var(--icon-size);
+}
+
+div,
+span,
+p {
+  cursor: default;
+  user-select: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root {
+  background: var(--bg-color);
+  /* 毛玻璃核心代码 */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  height: 100%;
+  padding: 4px 1.5vw;
+}
+
+.left,
+.center,
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.center {
+  justify-self: center;
+}
+
+.right {
+  justify-self: end;
+}
+
+.logo,
+.binding-mode,
+.tiling-direction,
+.paused-button,
+.network,
+.memory,
+.cpu,
+.battery {
+  margin-right: 20px;
+}
+
+.workspaces {
+  display: flex;
+  align-items: center;
+}
+
+/* 按钮与工作区统一样式，匹配半透明主题 */
+.workspace {
+  background: var(--btn-bg);
+  margin-right: 4px;
+  padding: 4px 8px;
+  color: var(--text-color);
+  border: none;
+  border-radius: 4px; /* 稍微圆润一点更契合毛玻璃 */
+  cursor: pointer;
+  transition: background-color 0.2s ease; /* 增加平滑渐变动画 */
+}
+
+.workspace.displayed {
+  background: var(--btn-displayed);
+}
+
+.workspace.focused,
+.workspace:hover {
+  background: var(--btn-focused);
+}
+
+.binding-mode,
+.tiling-direction,
+.paused-button {
+  background: var(--btn-bg);
+  color: var(--text-color);
+  border-radius: 4px;
+  line-height: 1;
+  padding: 4px 8px;
+  border: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.binding-mode:hover,
+.tiling-direction:hover,
+.paused-button:hover {
+  background: var(--btn-focused);
+}
+
+.binding-mode {
+  margin-right: 4px;
+}
+
+/* CPU高负载颜色改成契合主题的深绯红/品红 */
+.cpu .high-usage {
+  color: #d94a7a;
+  text-shadow: none; /* 警告色取消阴影使其更锐利 */
+  font-weight: bold;
+}
+
+.battery {
+  position: relative;
+}
+
+.battery .charging-icon {
+  position: absolute;
+  font-size: 7px;
+  left: -8px;
+  top: 3px;
+}
